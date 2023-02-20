@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <html>
 <head>
     <%@ include file="css.jsp" %>
@@ -13,14 +14,14 @@
     <h1> User quiz result details: </h1> <br>
     <c:forEach begin="0" end="${quizResults.size() - 1}" var="i" varStatus="loop" step="4">
         <div>
-            <label> ${quizResults.get(i).getQuestion_des()}$ </label> <br>
+            <label> ${fn:substringBefore(i / 4 + 1, '.')}. ${quizResults.get(i).getQuestion_des()} </label> <br>
             <c:forEach begin="${i}" end="${i+3}" var="j" varStatus="loop">
                 <c:set var="right" value="0" />
                 <input type="radio"
                        style="background-color:lightBlue"
                 <c:if test="${quizResults.get(j).getUser_choice_id() == quizResults.get(j).getOption_id()}">checked="checked"</c:if>
                 >
-                <textarea rows=1
+                <textarea rows=1 cols=30
                     <c:choose>
                         <c:when test="${quizResults.get(j).getUser_choice_id() == quizResults.get(j).getOption_id() && quizResults.get(j).is_correct()}">
                             style="background-color:lightBlue"
