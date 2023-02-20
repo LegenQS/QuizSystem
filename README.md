@@ -25,7 +25,7 @@
 - [Backend Service](#back)
     - [MVC Structure](#mvc)
     - [Filter](#filter)
-    - [Communication[(#comm)
+    - [Communication](#comm)
 - [Future Work](#future)
 
 <a name="desc"/>  
